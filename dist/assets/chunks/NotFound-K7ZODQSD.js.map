@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/pages/NotFound.tsx"],
+  "sourcesContent": ["import { useLocation } from \"react-router-dom\";\r\nimport { useEffect } from \"react\";\r\n\r\nconst NotFound = () => {\r\n  const location = useLocation();\r\n\r\n  useEffect(() => {\r\n    console.error(\r\n      \"404 Error: User attempted to access non-existent route:\",\r\n      location.pathname\r\n    );\r\n  }, [location.pathname]);\r\n\r\n  return (\r\n    <div className=\"min-h-screen flex items-center justify-center bg-gray-100\">\r\n      <div className=\"text-center\">\r\n        <h1 className=\"text-4xl font-bold mb-4\">404</h1>\r\n        <p className=\"text-xl text-gray-600 mb-4\">Oops! Page not found</p>\r\n        <a href=\"/\" className=\"text-blue-500 hover:text-blue-700 underline\">\r\n          Return to Home\r\n        </a>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default NotFound;\r\n"],
+  "mappings": "0EACA,IAAAA,EAA0B,SAcpBC,EAAA,SAZAC,EAAW,IAAM,CACrB,IAAMC,EAAWC,EAAY,EAE7B,sBAAU,IAAM,CACd,QAAQ,MACN,0DACAD,EAAS,QACX,CACF,EAAG,CAACA,EAAS,QAAQ,CAAC,KAGpB,OAAC,OAAI,UAAU,4DACb,oBAAC,OAAI,UAAU,cACb,oBAAC,MAAG,UAAU,0BAA0B,eAAG,KAC3C,OAAC,KAAE,UAAU,6BAA6B,gCAAoB,KAC9D,OAAC,KAAE,KAAK,IAAI,UAAU,8CAA8C,0BAEpE,GACF,EACF,CAEJ,EAEOE,EAAQH",
+  "names": ["import_react", "import_jsx_runtime", "NotFound", "location", "useLocation", "NotFound_default"]
+}
