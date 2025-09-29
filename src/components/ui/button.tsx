@@ -21,6 +21,7 @@ const buttonVariants = cva(
         monastery: "bg-gradient-monastery text-primary-foreground hover:scale-105 shadow-golden font-semibold transition-monastery",
         spiritual: "bg-gradient-spiritual text-accent-foreground hover:bg-gradient-spiritual hover:scale-105 shadow-peaceful transition-monastery",
         hero: "bg-gradient-himalayan text-primary-foreground hover:scale-105 shadow-golden font-bold text-lg px-8 py-4 transition-monastery",
+        brand: "bg-[#f97316] text-white hover:bg-[#ea6a10] shadow-md",
       },
       size: {
         default: "h-10 px-4 py-2",

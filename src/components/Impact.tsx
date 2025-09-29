@@ -26,8 +26,8 @@ export const Impact = () => {
     <section className="py-24 bg-gradient-spiritual text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-monastery-gold rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-sunrise rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="hidden sm:block absolute top-20 left-20 w-64 h-64 bg-monastery-gold rounded-full blur-3xl animate-float"></div>
+        <div className="hidden sm:block absolute bottom-20 right-20 w-96 h-96 bg-sunrise rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -45,10 +45,10 @@ export const Impact = () => {
           {impacts.map((impact, index) => (
             <div 
               key={index}
-              className="text-center group hover:scale-105 transition-transform duration-500"
+              className="text-center group sm:hover:scale-105 transition-transform duration-500"
             >
               <div className="mb-4">
-                <div className="text-4xl md:text-5xl font-bold text-monastery-gold mb-2 group-hover:animate-glow">
+                <div className="text-4xl md:text-5xl font-bold text-monastery-gold mb-2 sm:group-hover:animate-glow">
                   {impact.number}
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{impact.label}</h3>
