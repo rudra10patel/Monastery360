@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Loader2 } from "lucide-react";
+import { Chatbot } from "@/components/Chatbot";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -47,6 +48,8 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
+        {/* Global floating chatbot outside Suspense to ensure visibility */}
+        <Chatbot />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
