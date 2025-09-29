@@ -631,6 +631,19 @@ video {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
 }
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+@media (min-width: 1400px) {
+
+  .container {
+    max-width: 1400px;
+  }
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1147,8 +1160,8 @@ video {
 .w-\[1px\] {
   width: 1px;
 }
-.w-\[250px\] {
-  width: 250px;
+.w-\[200px\] {
+  width: 200px;
 }
 .w-auto {
   width: auto;
@@ -1351,6 +1364,9 @@ video {
 }
 .list-inside {
   list-style-position: inside;
+}
+.list-decimal {
+  list-style-type: decimal;
 }
 .list-disc {
   list-style-type: disc;
@@ -1581,6 +1597,9 @@ video {
 .border-destructive {
   border-color: hsl(var(--destructive));
 }
+.border-destructive\/30 {
+  border-color: hsl(var(--destructive) / 0.3);
+}
 .border-destructive\/50 {
   border-color: hsl(var(--destructive) / 0.5);
 }
@@ -1624,6 +1643,9 @@ video {
 .bg-accent\/20 {
   background-color: hsl(var(--accent) / 0.2);
 }
+.bg-amber-50\/50 {
+  background-color: rgb(255 251 235 / 0.5);
+}
 .bg-background {
   background-color: hsl(var(--background));
 }
@@ -1647,6 +1669,9 @@ video {
 }
 .bg-destructive {
   background-color: hsl(var(--destructive));
+}
+.bg-destructive\/5 {
+  background-color: hsl(var(--destructive) / 0.05);
 }
 .bg-foreground {
   background-color: hsl(var(--foreground));
@@ -1685,6 +1710,9 @@ video {
 }
 .bg-primary {
   background-color: hsl(var(--primary));
+}
+.bg-primary\/10 {
+  background-color: hsl(var(--primary) / 0.1);
 }
 .bg-primary\/20 {
   background-color: hsl(var(--primary) / 0.2);
@@ -2068,6 +2096,10 @@ video {
 .text-accent-foreground {
   color: hsl(var(--accent-foreground));
 }
+.text-amber-600 {
+  --tw-text-opacity: 1;
+  color: rgb(217 119 6 / var(--tw-text-opacity, 1));
+}
 .text-blue-500 {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity, 1));
@@ -2198,6 +2230,9 @@ video {
 }
 .opacity-70 {
   opacity: 0.7;
+}
+.opacity-80 {
+  opacity: 0.8;
 }
 .opacity-90 {
   opacity: 0.9;
@@ -3590,6 +3625,10 @@ iframe {
 
 .dark\:border-sunrise:is(.dark *) {
   border-color: hsl(var(--sunrise));
+}
+
+.dark\:bg-amber-900\/20:is(.dark *) {
+  background-color: rgb(120 53 15 / 0.2);
 }
 
 .dark\:bg-monastery-maroon\/90:is(.dark *) {

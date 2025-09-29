@@ -13,6 +13,7 @@ const InteractiveMap = lazy(() => import("./pages/InteractiveMap"));
 const DigitalArchives = lazy(() => import("./pages/DigitalArchives"));
 const CulturalCalendar = lazy(() => import("./pages/CulturalCalendar"));
 const AudioGuides = lazy(() => import("./pages/AudioGuides"));
+const Emergency = lazy(() => import("./pages/Emergency"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading component
@@ -41,6 +42,7 @@ const App = () => (
             <Route path="/archives" element={<DigitalArchives />} />
             <Route path="/calendar" element={<CulturalCalendar />} />
             <Route path="/audio-guides" element={<AudioGuides />} />
+            <Route path="/emergency" element={<Emergency />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

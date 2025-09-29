@@ -15,7 +15,8 @@ export const Navigation = () => {
     { name: "Digital Archives", path: "/archives" },
     { name: "Interactive Map", path: "/map" },
     { name: "Cultural Calendar", path: "/calendar" },
-    { name: "Audio Guides", path: "/audio-guides" }
+    { name: "Audio Guides", path: "/audio-guides" },
+    { name: "Emergency", path: "/emergency" }
   ];
 
   return (
