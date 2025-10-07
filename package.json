@@ -7,6 +7,8 @@
     "dev": "node server/index.js",
     "build": "node scripts/build.mjs",
     "start": "npm run build && node server/index.js",
+    "import:assets": "node scripts/import-assets.mjs",
+    "import:monasteries": "node scripts/import-monasteries.mjs",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -62,7 +64,10 @@
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.9",
     "zod": "^3.25.76",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mongodb": "^6.10.0",
+    "dotenv": "^16.4.5",
+    "mime-types": "^2.1.35"
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",

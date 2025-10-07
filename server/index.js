@@ -1,8 +1,11 @@
+import 'dotenv/config';
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
 import { spawnSync } from 'child_process';
+import { Readable } from 'stream';
+import { getCollections, getBucket } from './db.js';
 // Node 18+ has global fetch; for older Node, consider importing 'node-fetch'.
 
 const __filename = fileURLToPath(import.meta.url);
@@ -35,6 +38,59 @@ app.use(express.static(distDir, { maxAge: '1d' }));
 // Health endpoint
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok' });
+});
+
+// Monasteries API
+app.get('/api/monasteries', async (_req, res) => {
+  try {
+    const { monasteries } = await getCollections();
+    const docs = await monasteries.find({}).toArray();
+    res.json(docs);
+  } catch (err) {
+    console.error('List monasteries error', err);
+    res.status(500).json({ error: 'internal_error' });
+  }
+});
+
+app.get('/api/monasteries/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { monasteries } = await getCollections();
+    const doc = await monasteries.findOne({ id });
+    if (!doc) return res.status(404).json({ error: 'not_found' });
+    res.json(doc);
+  } catch (err) {
+    console.error('Get monastery error', err);
+    res.status(500).json({ error: 'internal_error' });
+  }
+});
+
+// Media streaming via GridFS
+app.get('/api/media/:filename', async (req, res) => {
+  try {
+    const bucket = await getBucket();
+    const filename = req.params.filename;
+    const downloadStream = bucket.openDownloadStreamByName(filename);
+
+    downloadStream.on('file', (file) => {
+      const contentType = file?.metadata?.contentType || 'application/octet-stream';
+      res.setHeader('Content-Type', contentType);
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+    });
+
+    downloadStream.on('error', (err) => {
+      if (String(err?.message || '').includes('FileNotFound')) {
+        return res.status(404).json({ error: 'not_found' });
+      }
+      console.error('GridFS download error', err);
+      return res.status(500).json({ error: 'internal_error' });
+    });
+
+    downloadStream.pipe(res);
+  } catch (err) {
+    console.error('Media route error', err);
+    res.status(500).json({ error: 'internal_error' });
+  }
 });
 
 // Gemini chat proxy endpoint
